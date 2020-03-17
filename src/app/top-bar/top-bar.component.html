@@ -1,0 +1,11 @@
+<div class = "top-bar" *ngIf = "showTopBar"> 
+  <a [routerLink]="['/']">
+      <h1>My Store</h1>
+    </a>
+  </div>
+<div class = "top-bar" *ngIf = "showTopBar"> 
+  <a [routerLink]="['/cart']" ><button>checkOut</button></a>
+</div>
+<div class = "top-bar" *ngIf = "showTopBar">
+  <button (click) = "logOut()" >Sign Out</button>
+</div>

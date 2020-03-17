@@ -1,0 +1,80 @@
+<div class = "container">
+    
+    <div class="row ">
+        
+        <div class="card text-left new-cards ">
+            <div class = "card-header">
+                Products
+            </div>
+            <div class = "card-body">
+                <a [routerLink] = "['/adding']">Add Product <i class="fa fa-plus-circle"></i></a>
+                <div class = 'form-group' [formGroup] = "newProductForm">
+                    <div class = "name-field">
+                        <label for="name" >name:</label>
+                        <input type="text" formControlName = "name" class = "form-control " id="name" [ngClass] = "{'is-invalid' : newProductForm.get('name').errors && (newProductForm.get('name').touched || newProductForm.get('name').dirty), 'is-valid':newProductForm.get('name').valid }"/>
+                        <div class="invalid-feedback">
+                            name must be aleast 5 letters 
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class = "price-field">
+                        <label for="price">price:</label>
+                        <input type="number" formControlName = "price" class = "form-control" [ngClass] = "{'is-invalid' : newProductForm.get('price').errors && (newProductForm.get('price').touched || newProductForm.get('price').dirty), 'is-valid':newProductForm.get('price').valid }"/>
+                        <div  class="invalid-feedback">
+                            price must be in numbers
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class = "description-field">
+                        <label for="description">description:</label>
+                        <input type="text" formControlName = "description" class = "form-control" [ngClass] = "{'is-invalid': newProductForm.get('description').errors && (newProductForm.get('description').touched || newProductForm.get('description').dirty), 'is-valid':newProductForm.get('description').valid }" />
+                        <div class="invalid-feedback">
+                            Description must be atleast 2 letters
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <label for="">
+                            <button  (click)="addProductTo(newProductForm)" style="margin-top: 1em;" [disabled] = "!newProductForm.valid">submit</button>  
+                        </label>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class = "card main-card" *ngFor="let product of products; index as productId">
+            <div class = "card-header ">
+                <div >
+                    <h3>
+                        <a [title]="product.name + ' details'" [routerLink]= "['/products',productId]">            
+                            {{ product.name }}
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class = "card-body"> 
+                <div>
+                    <h4>
+                        price: {{ product.price }}
+                    </h4>
+                </div>   
+                <p *ngIf="product.description">
+                    Description:{{ product.description }}
+                </p>  
+                <button (click)="share()">
+                    share
+                </button>
+                <app-product-alerts 
+                [product]="product"
+                (notify)="onNotify()">
+            </app-product-alerts>
+        </div>
+        
+    </div>
+</div>

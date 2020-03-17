@@ -1,0 +1,21 @@
+.container{
+    margin-top: 1em;
+}
+
+.name{
+    float: left;
+    width: 10em; margin-right: 1em;
+}
+
+.main-card{
+    margin-right: 1em;
+    width:15rem;
+    height: 22rem;
+    margin-bottom: 1em;
+}
+.new-cards{
+    margin-right: 1em;
+    width:15rem;
+    height: auto;
+    margin-bottom: 1em;
+}

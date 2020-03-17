@@ -1,0 +1,33 @@
+       <div class="my-container">
+
+           <form  [formGroup] = "Applogin">
+    
+                <div class="login-form">
+                    <div class = "card-text-center">
+
+                        <div class = "card-header">
+                            <h2 class="text-center">Sign in</h2>   
+                        </div>
+                        <div class = "card-body">
+                            <div class="form-group ">
+                                <div class="inputfields">
+                                    <span class="input-group-addon inputicon"><i class="fa fa-user"></i></span>
+                                    <input type="email" formControlName = "email" name="email" placeholder="name@Example.com" required="required">				
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputfields">
+                                    <span class="input-group-addon inputicon"><i class="fa fa-lock"></i></span>
+                                    <input type="password" formControlName = "password" name="password" placeholder="Password" required="required">				
+                                </div>
+                            </div>        
+                            <div class="form-group inputfields">
+                                <button type="submit" class="btn btn-primary login-btn btn-block" class="loginbutton" (click) = "auth()" [disabled] = "!Applogin.valid">Sign in</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+            
+       </div>
